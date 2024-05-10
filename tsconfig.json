@@ -18,8 +18,12 @@
         "name": "next"
       }
     ],
+    "baseUrl": "./src",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@shared/*": ["./shared/*"],
+      "@features/*": ["./features/*"],
+      "@app/*": ["./app/*"]
     }
   },
   "include": [
@@ -28,7 +32,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/lib/placeholder-data.js",
-    "scripts/seed.js"
+    "scripts/seed.js",
+    "src/**/*.js"
   ],
   "exclude": ["node_modules"]
 }
