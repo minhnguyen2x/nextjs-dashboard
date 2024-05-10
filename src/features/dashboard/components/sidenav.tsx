@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import NavLinks from '@/src/app/ui/dashboard/nav-links';
-import AcmeLogo from '@/src/app/ui/acme-logo';
+import { NavLinks } from '@shared/components/nav-links';
+import { AcmeLogo } from '@shared/components/acme-logo';
 import { PowerIcon } from '@heroicons/react/24/outline';
 
-export default function SideNav() {
+export function SideNav() {
   return (
     <div className="flex h-full flex-col px-3 py-4 md:px-2">
       <Link
