@@ -1,8 +1,11 @@
 import { LatestInvoiceRaw } from '@features/dashboard/types/invoice';
 import { sql } from '@vercel/postgres';
 import { formatCurrency } from '@features/dashboard/utils/format-currency';
+import { unstable_noStore as noStore } from 'next/cache';
 
 export async function fetchLatestInvoices() {
+  noStore();
+
   try {
     const data = await sql<LatestInvoiceRaw>`
       SELECT invoices.amount, customers.name, customers.image_url, customers.email, invoices.id

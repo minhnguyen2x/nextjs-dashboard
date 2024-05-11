@@ -1,7 +1,10 @@
 import { sql } from '@vercel/postgres';
 import { formatCurrency } from '@features/dashboard/utils/format-currency';
+import { unstable_noStore as noStore } from 'next/cache';
 
 export async function fetchCardData() {
+  noStore();
+
   try {
     // You can probably combine these into a single SQL query
     // However, we are intentionally splitting them to demonstrate
