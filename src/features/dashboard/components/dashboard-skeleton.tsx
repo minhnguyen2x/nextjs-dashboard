@@ -1,6 +1,6 @@
 import { shimmer } from '@features/dashboard/styles/loading-animation';
 import { CardSkeleton } from '@features/dashboard/components/card-skeleton';
-import { RevenueChartSkeleton } from '@features/dashboard/components/revenue-skeleton';
+import { RevenueChartSkeleton } from '@/features/dashboard/components/revenue-chart-skeleton';
 import { LatestInvoicesSkeleton } from '@features/dashboard/components/latest-invoices-skeleton';
 
 export function DashboardSkeleton() {

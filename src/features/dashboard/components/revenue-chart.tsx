@@ -2,6 +2,7 @@ import { generateYAxis } from '@features/dashboard/utils/generate-y-axis';
 import { CalendarIcon } from '@heroicons/react/24/outline';
 import { lusitana } from '@shared/assets/font/lusitana';
 import { Revenue } from '@features/dashboard/types/revenue';
+import { fetchRevenue } from '@features/dashboard/database/revenue';
 
 // This component is representational only.
 // For data visualization UI, check out:
@@ -9,13 +10,11 @@ import { Revenue } from '@features/dashboard/types/revenue';
 // https://www.chartjs.org/
 // https://airbnb.io/visx/
 
-type RevenueChartProps = {
-  revenue: Revenue[];
-};
-
-export async function RevenueChart({ revenue }: RevenueChartProps) {
+export async function RevenueChart() {
   const chartHeight = 350;
   // NOTE: comment in this code when you get to this point in the course
+
+  const revenue: Revenue[] = await fetchRevenue();
 
   const { yAxisLabels, topLabel } = generateYAxis(revenue);
 
