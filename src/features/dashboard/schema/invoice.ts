@@ -9,3 +9,5 @@ const InvoiceSchema = z.object({
 });
 
 export const CreateInvoiceSchema = InvoiceSchema.omit({ id: true, date: true });
+
+export const UpdateInvoiceSchema = InvoiceSchema.omit({ id: true, date: true });

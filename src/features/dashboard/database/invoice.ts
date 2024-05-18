@@ -3,6 +3,7 @@ import { sql } from '@vercel/postgres';
 import { formatCurrency } from '@features/dashboard/utils/format-currency';
 import { unstable_noStore as noStore } from 'next/cache';
 import { InvoicesTable } from '@features/dashboard/types/invoice';
+import { InvoiceForm } from '@features/dashboard/types/invoice-form';
 
 export async function fetchLatestInvoices() {
   noStore();
@@ -85,5 +86,32 @@ export async function fetchInvoicesPages(query: string) {
   } catch (error) {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch total number of invoices.');
+  }
+}
+
+export async function fetchInvoiceById(id: string) {
+  noStore();
+
+  try {
+    const data = await sql<InvoiceForm>`
+      SELECT
+        invoices.id,
+        invoices.customer_id,
+        invoices.amount,
+        invoices.status
+      FROM invoices
+      WHERE invoices.id = ${id};
+    `;
+
+    const invoice = data.rows.map((invoice) => ({
+      ...invoice,
+      // Convert amount from cents to dollars
+      amount: invoice.amount / 100,
+    }));
+
+    return invoice[0];
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch invoice.');
   }
 }

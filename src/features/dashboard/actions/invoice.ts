@@ -1,6 +1,9 @@
 'use server';
 
-import { CreateInvoiceSchema } from '@features/dashboard/schema/invoice';
+import {
+  CreateInvoiceSchema,
+  UpdateInvoiceSchema,
+} from '@features/dashboard/schema/invoice';
 import { sql } from '@vercel/postgres';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
@@ -21,8 +24,25 @@ export async function createInvoice(formData: FormData) {
     VALUES (${customerId}, ${amountInCents}, ${status}, ${date})
   `;
 
-  // Test it out:
-  console.log(rawFormData);
+  revalidatePath('/dashboard/invoices');
+  redirect('/dashboard/invoices');
+}
+
+export async function updateInvoice(id: string, formData: FormData) {
+  const { customerId, amount, status } = UpdateInvoiceSchema.parse({
+    customerId: formData.get('customerId'),
+    amount: formData.get('amount'),
+    status: formData.get('status'),
+  });
+
+  const amountInCents = amount * 100;
+
+  await sql`
+    UPDATE invoices
+    SET customer_id = ${customerId}, amount = ${amountInCents}, status = ${status}
+    WHERE id = ${id}
+  `;
+
   revalidatePath('/dashboard/invoices');
   redirect('/dashboard/invoices');
 }
