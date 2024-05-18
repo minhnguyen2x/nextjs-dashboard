@@ -2,17 +2,17 @@ import { clsx } from 'clsx';
 import Link from 'next/link';
 import { lusitana } from '@shared/assets/font/lusitana';
 
-interface Breadcrumb {
+export type Breadcrumb = {
   label: string;
   href: string;
   active?: boolean;
-}
+};
 
-export default function Breadcrumbs({
-  breadcrumbs,
-}: {
+export type BreadcrumbsProps = {
   breadcrumbs: Breadcrumb[];
-}) {
+};
+
+export function Breadcrumbs({ breadcrumbs }: BreadcrumbsProps) {
   return (
     <nav aria-label="Breadcrumb" className="mb-6 block">
       <ol className={clsx(lusitana.className, 'flex text-xl md:text-2xl')}>
