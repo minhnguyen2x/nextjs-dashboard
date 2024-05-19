@@ -1,7 +1,10 @@
 import { CustomerField } from '@features/dashboard/types/invoice-form';
 import { sql } from '@vercel/postgres';
+import { unstable_noStore as noStore } from 'next/cache';
 
 export async function fetchCustomers() {
+  noStore();
+
   try {
     const data = await sql<CustomerField>`
       SELECT

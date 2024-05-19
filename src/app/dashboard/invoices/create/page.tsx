@@ -1,8 +1,8 @@
-import { Form } from '@features/dashboard/components/create-form';
+import { CreateInvoiceForm } from '@features/dashboard/components/create-form';
 import { Breadcrumbs } from '@shared/components/breadcrumbs';
 import { fetchCustomers } from '@features/dashboard/database/customer';
 
-export default async function Page() {
+export default async function CreateInvoicePage() {
   const customers = await fetchCustomers();
 
   return (
@@ -17,7 +17,7 @@ export default async function Page() {
           },
         ]}
       />
-      <Form customers={customers} />
+      <CreateInvoiceForm customers={customers} />
     </main>
   );
 }
