@@ -2,6 +2,7 @@ import { EditInvoiceForm } from '@features/dashboard/components/edit-form';
 import { Breadcrumbs } from '@shared/components/breadcrumbs';
 import { fetchCustomers } from '@features/dashboard/database/customer';
 import { fetchInvoiceById } from '@features/dashboard/database/invoice';
+import { notFound } from 'next/navigation';
 
 type EditInvoicePageProps = { params: { id: string } };
 
@@ -14,6 +15,10 @@ export default async function EditInvoicePage({
     fetchInvoiceById(id),
     fetchCustomers(),
   ]);
+
+  if (!invoice) {
+    notFound();
+  }
 
   return (
     <main>
