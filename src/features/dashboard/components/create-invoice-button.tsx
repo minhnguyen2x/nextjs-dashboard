@@ -1,7 +1,7 @@
-import { PencilIcon, PlusIcon } from '@heroicons/react/24/outline';
+import { PlusIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 
-export function CreateInvoice() {
+export function CreateInvoiceButton() {
   return (
     <Link
       href="/dashboard/invoices/create"
@@ -9,17 +9,6 @@ export function CreateInvoice() {
     >
       <span className="hidden md:block">Create Invoice</span>{' '}
       <PlusIcon className="h-5 md:ml-4" />
-    </Link>
-  );
-}
-
-export function UpdateInvoice({ id }: { id: string }) {
-  return (
-    <Link
-      href={`/dashboard/invoices/${id}/edit`}
-      className="rounded-md border p-2 hover:bg-gray-100"
-    >
-      <PencilIcon className="w-5" />
     </Link>
   );
 }
