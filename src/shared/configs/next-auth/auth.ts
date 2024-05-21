@@ -1,6 +1,6 @@
-import NextAuth from 'next-auth';
-import { authConfig } from '@root/auth.config';
 import Credentials from 'next-auth/providers/credentials';
+import NextAuth from 'next-auth';
+import { authConfig } from '@shared/configs/next-auth/auth.config';
 import { z } from 'zod';
 import { sql } from '@vercel/postgres';
 import type { User } from '@/app/lib/definitions';

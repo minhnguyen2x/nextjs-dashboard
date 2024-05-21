@@ -1,6 +1,6 @@
 'use server';
 
-import { signIn } from '@root/auth';
+import { signIn } from '@shared/configs/next-auth/auth';
 import { AuthError } from 'next-auth';
 
 export async function authenticate(
