@@ -2,10 +2,10 @@ import { RevenueChart } from '@features/dashboard/components/revenue-chart';
 import { LatestInvoices } from '@features/dashboard/components/latest-invoices';
 import { lusitana } from '@shared/assets/font/lusitana';
 import { Suspense } from 'react';
-import { RevenueChartSkeleton } from '@/features/dashboard/components/revenue-chart-skeleton';
-import { LatestInvoicesSkeleton } from '@/features/dashboard/components/latest-invoices-skeleton';
-import { CardWrapper } from '@/features/dashboard/components/cards';
-import { CardsSkeleton } from '@/features/dashboard/components/cards-skeleton';
+import { RevenueChartSkeleton } from '@features/dashboard/components/revenue-chart-skeleton';
+import { LatestInvoicesSkeleton } from '@features/dashboard/components/latest-invoices-skeleton';
+import { CardWrapper } from '@features/dashboard/components/cards';
+import { CardsSkeleton } from '@features/dashboard/components/cards-skeleton';
 
 export default async function Page() {
   return (

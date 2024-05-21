@@ -1,11 +1,11 @@
 import { Pagination } from '@shared/components/pagination';
-import { Search } from '@/shared/components/search';
+import { Search } from '@shared/components/search';
 import { InvoicesTable } from '@features/dashboard/components/invoices-table';
 import { CreateInvoiceButton } from '@features/dashboard/components/create-invoice-button';
 import { lusitana } from '@shared/assets/font/lusitana';
 import { InvoicesTableSkeleton } from '@features/dashboard/components/invoices-table-skeleton';
 import { Suspense } from 'react';
-import { fetchInvoicesPages } from '@/features/dashboard/database/invoice';
+import { fetchInvoicesPages } from '@features/dashboard/database/invoice';
 
 type InvoicesPageProps = {
   searchParams?: {

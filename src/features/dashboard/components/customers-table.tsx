@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { lusitana } from '@shared/assets/font/lusitana';
-import { Search } from '@/shared/components/search';
+import { Search } from '@shared/components/search';
 import { FormattedCustomersTable } from '@features/dashboard/types/customer';
 
 export default async function CustomersTable({
