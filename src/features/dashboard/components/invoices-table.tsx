@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { UpdateInvoiceButton } from '@features/dashboard/components/update-invoice-button';
 import { DeleteInvoiceButton } from '@features/dashboard/components/delete-invoice-button';
-import InvoiceStatus from '@app/ui/invoices/status';
+import { InvoiceStatus } from '@features/dashboard/components/invoice-status';
 import { formatCurrency } from '@shared/utils/format-currency';
 import { formatDateToLocal } from '@shared/utils/format-date-to-local';
 import { fetchFilteredInvoices } from '@features/dashboard/database/invoice';

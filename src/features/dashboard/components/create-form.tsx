@@ -7,7 +7,7 @@ import {
   CurrencyDollarIcon,
   UserCircleIcon,
 } from '@heroicons/react/24/outline';
-import { Button } from '@app/ui/button';
+import { Button } from 'shared/components/button';
 import { CustomerField } from '@features/dashboard/types/invoice-form';
 import { createInvoice } from '@features/dashboard/actions/invoice';
 import { useFormState } from 'react-dom';

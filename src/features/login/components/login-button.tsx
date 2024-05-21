@@ -1,5 +1,5 @@
 import { ArrowRightIcon } from '@heroicons/react/20/solid';
-import { Button } from '@app/ui/button';
+import { Button } from '@shared/components/button';
 import { useFormStatus } from 'react-dom';
 
 export function LoginButton() {

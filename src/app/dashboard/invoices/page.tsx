@@ -1,4 +1,4 @@
-import { Pagination } from '@/app/ui/invoices/pagination';
+import { Pagination } from '@shared/components/pagination';
 import { Search } from '@/shared/components/search';
 import { InvoicesTable } from '@features/dashboard/components/invoices-table';
 import { CreateInvoiceButton } from '@features/dashboard/components/create-invoice-button';
