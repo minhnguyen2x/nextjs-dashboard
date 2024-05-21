@@ -1,6 +1,6 @@
 import { LatestInvoiceRaw } from '@features/dashboard/types/invoice';
 import { sql } from '@vercel/postgres';
-import { formatCurrency } from '@features/dashboard/utils/format-currency';
+import { formatCurrency } from '@shared/utils/format-currency';
 import { unstable_noStore as noStore } from 'next/cache';
 import { InvoicesTable } from '@features/dashboard/types/invoice';
 import { InvoiceForm } from '@features/dashboard/types/invoice-form';
@@ -18,7 +18,7 @@ export async function fetchLatestInvoices() {
 
     const latestInvoices = data.rows.map((invoice) => ({
       ...invoice,
-      amount: formatCurrency(invoice.amount),
+      amount: formatCurrency({ amount: invoice.amount }),
     }));
     return latestInvoices;
   } catch (error) {

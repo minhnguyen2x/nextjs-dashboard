@@ -1,10 +1,7 @@
 import Image from 'next/image';
 import { lusitana } from '@shared/assets/font/lusitana';
-import Search from '@app/ui/search';
-import {
-  CustomersTableType,
-  FormattedCustomersTable,
-} from '@app/lib/definitions';
+import { Search } from '@/shared/components/search';
+import { FormattedCustomersTable } from '@features/dashboard/types/customer';
 
 export default async function CustomersTable({
   customers,

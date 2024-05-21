@@ -8,7 +8,7 @@ export type SearchProps = {
   placeholder: string;
 };
 
-export default function Search({ placeholder }: SearchProps) {
+export function Search({ placeholder }: SearchProps) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();

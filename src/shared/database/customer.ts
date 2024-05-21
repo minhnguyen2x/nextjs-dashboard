@@ -1,6 +1,6 @@
 import { sql } from '@vercel/postgres';
-import { CustomersTableType } from './definitions';
-import { formatCurrency } from './utils';
+import { CustomersTableType } from '@shared/types/customer';
+import { formatCurrency } from '@shared/utils/format-currency';
 import { unstable_noStore as noStore } from 'next/cache';
 
 export async function fetchFilteredCustomers(query: string) {
@@ -27,8 +27,8 @@ export async function fetchFilteredCustomers(query: string) {
 
     const customers = data.rows.map((customer) => ({
       ...customer,
-      total_pending: formatCurrency(customer.total_pending),
-      total_paid: formatCurrency(customer.total_paid),
+      total_pending: formatCurrency({ amount: customer.total_pending }),
+      total_paid: formatCurrency({ amount: customer.total_paid }),
     }));
 
     return customers;

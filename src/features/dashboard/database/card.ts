@@ -1,5 +1,5 @@
 import { sql } from '@vercel/postgres';
-import { formatCurrency } from '@features/dashboard/utils/format-currency';
+import { formatCurrency } from '@shared/utils/format-currency';
 import { unstable_noStore as noStore } from 'next/cache';
 
 export async function fetchCardData() {
@@ -24,8 +24,12 @@ export async function fetchCardData() {
 
     const numberOfInvoices = Number(data[0].rows[0].count ?? '0');
     const numberOfCustomers = Number(data[1].rows[0].count ?? '0');
-    const totalPaidInvoices = formatCurrency(data[2].rows[0].paid ?? '0');
-    const totalPendingInvoices = formatCurrency(data[2].rows[0].pending ?? '0');
+    const totalPaidInvoices = formatCurrency({
+      amount: data[2].rows[0].paid ?? '0',
+    });
+    const totalPendingInvoices = formatCurrency({
+      amount: data[2].rows[0].pending ?? '0',
+    });
 
     return {
       numberOfCustomers,

@@ -2,7 +2,8 @@ import Image from 'next/image';
 import { UpdateInvoiceButton } from '@features/dashboard/components/update-invoice-button';
 import { DeleteInvoiceButton } from '@features/dashboard/components/delete-invoice-button';
 import InvoiceStatus from '@app/ui/invoices/status';
-import { formatDateToLocal, formatCurrency } from '@app/lib/utils';
+import { formatCurrency } from '@shared/utils/format-currency';
+import { formatDateToLocal } from '@shared/utils/format-date-to-local';
 import { fetchFilteredInvoices } from '@features/dashboard/database/invoice';
 
 type InvoicesTableProps = {
@@ -45,9 +46,9 @@ export async function InvoicesTable({
                 <div className="flex w-full items-center justify-between pt-4">
                   <div>
                     <p className="text-xl font-medium">
-                      {formatCurrency(invoice.amount)}
+                      {formatCurrency({ amount: invoice.amount })}
                     </p>
-                    <p>{formatDateToLocal(invoice.date)}</p>
+                    <p>{formatDateToLocal({ dateStr: invoice.date })}</p>
                   </div>
                   <div className="flex justify-end gap-2">
                     <UpdateInvoiceButton id={invoice.id} />
@@ -102,10 +103,10 @@ export async function InvoicesTable({
                     {invoice.email}
                   </td>
                   <td className="whitespace-nowrap px-3 py-3">
-                    {formatCurrency(invoice.amount)}
+                    {formatCurrency({ amount: invoice.amount })}
                   </td>
                   <td className="whitespace-nowrap px-3 py-3">
-                    {formatDateToLocal(invoice.date)}
+                    {formatDateToLocal({ dateStr: invoice.date })}
                   </td>
                   <td className="whitespace-nowrap px-3 py-3">
                     <InvoiceStatus status={invoice.status} />

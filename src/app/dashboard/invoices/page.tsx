@@ -1,5 +1,5 @@
 import { Pagination } from '@/app/ui/invoices/pagination';
-import Search from '@/app/ui/search';
+import { Search } from '@/shared/components/search';
 import { InvoicesTable } from '@features/dashboard/components/invoices-table';
 import { CreateInvoiceButton } from '@features/dashboard/components/create-invoice-button';
 import { lusitana } from '@shared/assets/font/lusitana';
